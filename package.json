@@ -6,7 +6,9 @@
         "test": "umi test",
         "lint:es": "eslint --ext .js src mock tests",
         "lint:ts": "tslint \"src/**/*.ts\" \"src/**/*.tsx\"",
-        "precommit": "lint-staged"
+        "precommit": "lint-staged",
+        "link": "yalc add raydata",
+        "rm": "yalc remove --all"
     },
     "dependencies": {
         "@types/node": "^14.0.23",

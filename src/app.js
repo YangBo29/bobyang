@@ -1,4 +1,3 @@
-
 export const dva = {
     config: {
         onError(err) {
@@ -7,4 +6,3 @@ export const dva = {
         },
     },
 };
-  
