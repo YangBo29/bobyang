@@ -62,26 +62,20 @@ export default {
         '@utils': resolve(__dirname, '../src/utils'),
         // 组件库
         '@components': resolve(__dirname, '../src/components'),
-        // 属性面板
-        '@rightPanel': resolve(__dirname, '../src/components/template/ProjectRightPanel'),
         // 全局services
         '@services': resolve(__dirname, '../src/services'),
         // 全局models
         '@models': resolve(__dirname, '../src/models'),
         // request请求
         '@http': resolve(__dirname, '../src/utils/request.js'),
-        // 全局·规则
-        '@rule': resolve(__dirname, '../src/rule'),
-        // unityBridge
-        '@unityBridge': resolve(__dirname, '../src/unityBridge'),
         // 全局·组件初始化数据
         '@cmpInitData': resolve(__dirname, '../componentInitData'),
         // 项目公共资源文件
         '@public': resolve(__dirname, '../public'),
-        // asset
+        // 静态图片资源
         '@assets': resolve(__dirname, '../src/assets'),
-        // 公测和私有 页面级组件
-        '@pageClassify': resolve(__dirname, '../src/pageClassify'),
+        // 全局·规则
+        '@rules': resolve(__dirname, '../src/rules'),
     },
     urlLoaderExcludes: [/\.(png|jpe?g|gif|svg)$/],
     proxy: {
@@ -96,7 +90,7 @@ export default {
         //     changeOrigin: true,
         // },
     },
-    theme: './src/theme/theme_dark.js',
+    theme: './src/theme/theme_white.js',
     hash: true, //路径添加hash值，部署防止缓存
     chainWebpack(config) {
         config.plugin('extract-css').tap(options => {
