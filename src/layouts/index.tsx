@@ -6,6 +6,7 @@ import { connect } from 'dva';
 import ErrorBoundary from '@components/pulgIn/ErrorBoundary/index.jsx';
 import Nav from '@components/pulgIn/Nav/index.jsx';
 import SiderList from '@components/pulgIn/SiderList/index.jsx';
+import Code from '@components/template/Code/index.jsx';
 
 interface Props {
     storeUserInfo: Function;
@@ -26,6 +27,7 @@ const BasicLayout: React.FC<Props> = props => {
                 </div>
             </div>
 
+            <Code />
         </ErrorBoundary>
     );
 };
