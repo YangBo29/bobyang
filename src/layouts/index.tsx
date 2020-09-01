@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './index.less';
 import apis from '../services/apis.js';
 import utils from '../utils/index.js';
 import { connect } from 'dva';
+import { router } from 'umi';
 import ErrorBoundary from '@components/pulgIn/ErrorBoundary/index.jsx';
 import Nav from '@components/pulgIn/Nav/index.jsx';
-import SiderList from '@components/pulgIn/SiderList/index.jsx';
+import SideList from '@components/pulgIn/SideList/index.jsx';
 import Code from '@components/template/Code/index.jsx';
 
 interface Props {
@@ -16,15 +17,14 @@ interface Props {
 
 const BasicLayout: React.FC<Props> = props => {
     const { storeUserInfo } = props;
+
     return (
         <ErrorBoundary>
             <Nav />
 
             <div className={styles.content}>
-                <SiderList />
-                <div className={styles.main}>
-                    {props.children}
-                </div>
+                <SideList />
+                <div className={styles.main}>{props.children}</div>
             </div>
 
             <Code />
