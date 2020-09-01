@@ -20,7 +20,7 @@ function Code(props) {
 
     // 初始化代码编辑器
     useEffect(() => {
-        if (code_content.current) {
+        if (code && code_content.current) {
             console.log(monaco);
             monacoEditor.current = monaco.editor.create(code_content.current, {
                 value: ['function x() {', '\tconsole.log("Hello world!");', '}'].join('\n'),
@@ -28,8 +28,6 @@ function Code(props) {
                 automaticLayout: true,
                 theme: 'vs-white',
             });
-
-            console.log(monacoEditor.current);
 
             // 监听内容变更
             monacoEditor.current.onDidChangeModelContent(e => {
@@ -43,7 +41,9 @@ function Code(props) {
         }
 
         return () => {
-            monacoEditor.current.dispose();
+            if (monacoEditor.current) {
+                monacoEditor.current.dispose();
+            }
         };
     });
 
