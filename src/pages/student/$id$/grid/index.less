@@ -1,0 +1,44 @@
+/**
+ * author : yangbo
+ * date : 2020/09/09 15:50:46
+ * fileName: index.less
+ * description : display：grid
+**/
+
+.gird_content {
+    background-color: #dedede;
+    width: 100%;
+    height: 100%;
+
+    .gird_content_in {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        // grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
+        grid-row-gap: 10px;
+        grid-column-gap: 10px;
+    }
+
+    .grid_thumb {
+        background: #ccc;
+        padding-top: 56.25%;
+        position: relative;
+    }
+
+    .gird_item {
+        background-color: blue;
+    }
+
+    .grid_img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #666;
+    }
+
+    .grid_text {
+        width: 100%;
+        height: 30px;
+        background: green;
+    }
+}

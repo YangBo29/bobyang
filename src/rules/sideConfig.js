@@ -1,3 +1,19 @@
+/**
+ * {
+        linkName: '布局类', // 一级分类名称
+        linkKey: 'layout', // 跳转路由
+        linkActive: false, // 是否可跳转
+        linkNext: [
+            {
+                linkName: 'display:grid',
+                linkKey: 'grid',
+                linkActive: true,
+                linkNext: null,
+            },
+        ],
+    },
+*/
+
 export default [
     {
         linkName: 'CSS3',
@@ -5,8 +21,8 @@ export default [
         linkActive: false,
         linkNext: [
             {
-                linkName: 'li',
-                linkKey: 'li',
+                linkName: 'transform',
+                linkKey: 'transform',
                 linkActive: true,
                 linkNext: null,
             },
@@ -26,6 +42,19 @@ export default [
             {
                 linkName: 'nav',
                 linkKey: 'Nav',
+                linkActive: true,
+                linkNext: null,
+            },
+        ],
+    },
+    {
+        linkName: '布局类',
+        linkKey: 'layout',
+        linkActive: false,
+        linkNext: [
+            {
+                linkName: 'display:grid',
+                linkKey: 'grid',
                 linkActive: true,
                 linkNext: null,
             },

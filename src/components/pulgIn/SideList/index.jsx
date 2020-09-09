@@ -3,17 +3,17 @@ import styles from './index.less';
 import { Link } from 'umi';
 
 // 列表配置
-import siderConfig from '@rules/siderConfig';
+import sideConfig from '@rules/sideConfig';
 
-function Siderlist(props) {
+function SideList(props) {
     // 生成菜单列表
 
-    const createlist = useMemo(() => {
-        return siderConfig.map(item => {
+    const createList = useMemo(() => {
+        return sideConfig.map(item => {
             if (item.linkNext) {
                 return (
                     <div key={item.linkKey}>
-                        {createTitle(item)}
+                        {item.linkActive ? createTitJump(item) : createTitle(item)}
                         <ul className={styles.content_list}>
                             {item.linkNext.map(next => {
                                 return createLink(next);
@@ -57,7 +57,7 @@ function Siderlist(props) {
         );
     }
 
-    return <div className={styles.sider_list}>{createlist}</div>;
+    return <div className={styles.side_list}>{createList}</div>;
 }
 
-export default Siderlist;
+export default SideList;
