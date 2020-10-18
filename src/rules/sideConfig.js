@@ -61,6 +61,19 @@ export default [
         ],
     },
     {
+        linkName: '缓存类',
+        linkKey: 'storage',
+        linkActive: false,
+        linkNext: [
+            {
+                linkName: 'indexDb',
+                linkKey: 'indexdb',
+                linkActive: true,
+                linkNext: null,
+            },
+        ],
+    },
+    {
         linkName: '配置类',
         linkKey: 'config',
         linkActive: false,

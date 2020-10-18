@@ -1,0 +1,597 @@
+{
+    "projectId": 3962,
+    "userId": null,
+    "projectName": "32324234",
+    "projectSize": "1366:768",
+    "projectMusic": null,
+    "systemScenes": {
+        "scenesId": "139cfcf7d1a041359356184bc842e593",
+        "scenesName": "系统UI层",
+        "scenesOrder": 0,
+        "isShow": true,
+        "sceneBackGround": {
+            "backgroundImageWeb": "",
+            "backgroundImageOpacity": 1,
+            "backgroundColorOpacity": 1,
+            "backgroundColor": {
+                "gradientColor": {
+                    "gradientRotate": 0,
+                    "gradientColors": ["#FFFFFFFF", "#000000FF"],
+                    "gradientLocations": [0, 1]
+                },
+                "colorType": 0,
+                "solidColor": "#FFFFFFFF"
+            }
+        },
+        "projectTwoComponentList": []
+    },
+    "projectScenesList": [
+        {
+            "scenesId": "ea5b59c0ede14c26843d14ada60060ba",
+            "scenesName": "A层级",
+            "scenesOrder": 0,
+            "projectModel": {
+                "modelId": "",
+                "modelName": "",
+                "modelIosUrl": "",
+                "modelWebUrl": "",
+                "modelThumb": null,
+                "modelAndroidUrl": "",
+                "modelJson": "",
+                "modelVersion": 0,
+                "modelType": "",
+                "modelHotFixPath": ""
+            },
+            "projectBackground": {
+                "backgroundId": "",
+                "backgroundName": "",
+                "backgroundWebUrl": "",
+                "backgroundIosUrl": "",
+                "backgroundAndroidUrl": "",
+                "backgroundPictureUrl": "",
+                "previewUrl": ""
+            },
+            "projectPageList": [
+                {
+                    "pageId": "cc3fb3cd919f4a1d9d2240775539a52b",
+                    "pageName": "页面1",
+                    "pageOrder": 0,
+                    "snapshot": "",
+                    "inType": "",
+                    "outType": "",
+                    "pageBackground": {
+                        "backgroundImageWeb": "",
+                        "backgroundImageOpacity": 1,
+                        "backgroundColorOpacity": 1,
+                        "backgroundColor": {
+                            "gradientColor": {
+                                "gradientRotate": 0,
+                                "gradientColors": ["#FFFFFFFF", "#000000FF"],
+                                "gradientLocations": [0, 1]
+                            },
+                            "colorType": 0,
+                            "solidColor": "#FFFFFFFF"
+                        }
+                    },
+                    "projectTwoComponentList": [
+                        {
+                            "componentId": "xUG7R26At5r21ZI0VqMYXdua0keyMWnO",
+                            "componentName": "矩形",
+                            "componentType": "2110",
+                            "componentImage": "thumbnail_rectangle",
+                            "formatId": null,
+                            "inType": "Null",
+                            "outType": "Null",
+                            "cornerRadius": 0,
+                            "opacity": 1,
+                            "show": true,
+                            "initStatus": true,
+                            "componentRect": {
+                                "componentHeight": 100,
+                                "componentWidth": 200,
+                                "componentLeft": 100,
+                                "componentTop": 100,
+                                "componentRotate": 0,
+                                "lockRatio": false
+                            },
+                            "componentBorder": {
+                                "borderColor": null,
+                                "borderStyle": "solid",
+                                "borderWidth": 0
+                            },
+                            "backgroundColorData": {
+                                "colorType": 1,
+                                "gradientColor": {
+                                    "gradientRotate": 0,
+                                    "gradientColors": ["#FFFFFFFF", "#000000FF"],
+                                    "gradientLocations": [0, 1]
+                                },
+                                "solidColor": "#BBBBBBFF"
+                            },
+                            "textModel": {
+                                "text": "",
+                                "fontName": "Microsoft YaHei",
+                                "fontSize": 32,
+                                "alignment": "left",
+                                "bold": false,
+                                "italic": false,
+                                "underline": false,
+                                "color": "#ffffff",
+                                "kern": 0,
+                                "vs": 10,
+                                "textDataUrl": null,
+                                "textContent": "content"
+                            },
+                            "imageModel": { "imageUrl": null, "isBackgroundImage": false },
+                            "requestSource": {
+                                "type": "static",
+                                "requestUrl": "",
+                                "requestMethod": "GET",
+                                "authenticationOpen": false,
+                                "authenticationAction": 0,
+                                "authenticationParams": { "key": "", "secret": "" },
+                                "autoRequest": false,
+                                "requestDuration": 10,
+                                "matchState": false,
+                                "effect": {},
+                                "apiData": {}
+                            },
+                            "chartModel": null,
+                            "projectInteractionList": [],
+                            "componentShadow": {
+                                "isEnableShadow": false,
+                                "shadowBlur": 0,
+                                "offsetX": 0,
+                                "offsetY": 0,
+                                "spread": 5,
+                                "color": "#000000ff",
+                                "direction": "outset"
+                            },
+                            "svgModel": { "previewUrl": null },
+                            "zindex": 1,
+                            "notApplyPages": [],
+                            "order": 1,
+                            "TypeIcon": "overview_rectangle_default"
+                        }
+                    ],
+                    "projectThreeComponent": {
+                        "themeData": {
+                            "skyBoxData": {
+                                "colorData": {
+                                    "gradientColor": {
+                                        "gradientRotate": 0,
+                                        "gradientColors": ["#7AB2D9FF", "#10131DFF"],
+                                        "gradientLocations": [0, 1]
+                                    },
+                                    "colorType": 2,
+                                    "solidColor": "#7AB2D9FF"
+                                },
+                                "switchTime": 0.5,
+                                "picturePath": "",
+                                "exposure": 1,
+                                "saturation": 1,
+                                "blurLevel": 0,
+                                "alpha": 0,
+                                "sourceType": 0
+                            },
+                            "lightData": {
+                                "color": "#FFFFFFFF",
+                                "intensity": 1,
+                                "switchTime": 0.5,
+                                "settingState": false,
+                                "angleY": 90,
+                                "isShow": true
+                            },
+                            "particleData": [
+                                {
+                                    "isShow": true,
+                                    "colorData": {
+                                        "gradientColor": {
+                                            "gradientRotate": 0,
+                                            "gradientColors": ["#FFFFFFFF", "#000000FF"],
+                                            "gradientLocations": [0, 1]
+                                        },
+                                        "colorType": 1,
+                                        "solidColor": "#009EFFFF"
+                                    },
+                                    "speed": 1,
+                                    "name": "RisingLine"
+                                },
+                                {
+                                    "isShow": true,
+                                    "colorData": {
+                                        "gradientColor": {
+                                            "gradientRotate": 0,
+                                            "gradientColors": ["#FFFFFFFF", "#000000FF"],
+                                            "gradientLocations": [0, 1]
+                                        },
+                                        "colorType": 1,
+                                        "solidColor": "#009EFFFF"
+                                    },
+                                    "speed": 1,
+                                    "name": "FloatingParticles"
+                                }
+                            ]
+                        },
+                        "modelData": {
+                            "modelDecorateData": [],
+                            "modelStyleData": { "switchTime": 0.5, "styleCode": 0 },
+                            "signData": [],
+                            "ligatureData": [],
+                            "interactionAreaData": [],
+                            "modelModuleData": []
+                        },
+                        "cameraData": {
+                            "cameraType": null,
+                            "pointInfo": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0,
+                                "rx": 0,
+                                "ry": 0,
+                                "rz": 0,
+                                "rw": 1
+                            },
+                            "rotationXAxis": 30,
+                            "rotationYAxis": 0,
+                            "angleXMin": null,
+                            "angleXMax": null,
+                            "angleYMin": null,
+                            "angleYMax": null,
+                            "distance": 50,
+                            "disMax": null,
+                            "disMin": null,
+                            "lockRotation": false,
+                            "lockPan": false,
+                            "lockZoom": false,
+                            "rotateSpeed": null,
+                            "zoomSpeed": null,
+                            "panSpeed": null,
+                            "fpPosRotation": null,
+                            "fpRotateSpeed": null,
+                            "walkSpeed": null,
+                            "horizontalAngle": null,
+                            "horizontalRightAngleLimite": null,
+                            "horizontalLeftAngleLimite": null,
+                            "verticalAngle": null,
+                            "verticalUpAngleLimite": null,
+                            "verticalDownAngleLimite": null,
+                            "isLimite": false,
+                            "isRotation": true,
+                            "isRotationLimite": false,
+                            "isWalk": false,
+                            "isFly": false
+                        },
+                        "modelInteractionList": []
+                    }
+                }
+            ]
+        },
+        {
+            "scenesId": "62770d13022e4a9b9d417b178b542e2e",
+            "scenesName": "B层级",
+            "scenesOrder": 1,
+            "projectModel": {
+                "modelId": "",
+                "modelName": "",
+                "modelIosUrl": "",
+                "modelWebUrl": "",
+                "modelThumb": null,
+                "modelAndroidUrl": "",
+                "modelJson": "",
+                "modelVersion": 0,
+                "modelType": "",
+                "modelHotFixPath": ""
+            },
+            "projectBackground": {
+                "backgroundId": "",
+                "backgroundName": "",
+                "backgroundWebUrl": "",
+                "backgroundIosUrl": "",
+                "backgroundAndroidUrl": "",
+                "backgroundPictureUrl": "",
+                "previewUrl": ""
+            },
+            "projectPageList": [
+                {
+                    "pageId": "e5cd94bd64ef462eb0e402325cc754d1",
+                    "pageName": "页面1",
+                    "pageOrder": 0,
+                    "snapshot": "",
+                    "inType": "",
+                    "outType": "",
+                    "pageBackground": {
+                        "backgroundImageWeb": "",
+                        "backgroundImageOpacity": 1,
+                        "backgroundColorOpacity": 1,
+                        "backgroundColor": {
+                            "gradientColor": {
+                                "gradientRotate": 0,
+                                "gradientColors": ["#FFFFFFFF", "#000000FF"],
+                                "gradientLocations": [0, 1]
+                            },
+                            "colorType": 0,
+                            "solidColor": "#FFFFFFFF"
+                        }
+                    },
+                    "projectTwoComponentList": [],
+                    "projectThreeComponent": {
+                        "themeData": {
+                            "skyBoxData": {
+                                "colorData": {
+                                    "gradientColor": {
+                                        "gradientRotate": 0,
+                                        "gradientColors": ["#7AB2D9FF", "#10131DFF"],
+                                        "gradientLocations": [0, 1]
+                                    },
+                                    "colorType": 2,
+                                    "solidColor": "#7AB2D9FF"
+                                },
+                                "switchTime": 0.5,
+                                "picturePath": "",
+                                "exposure": 1,
+                                "saturation": 1,
+                                "blurLevel": 0,
+                                "alpha": 0,
+                                "sourceType": 0
+                            },
+                            "lightData": {
+                                "color": "#FFFFFFFF",
+                                "intensity": 1,
+                                "switchTime": 0.5,
+                                "settingState": false,
+                                "angleY": 90,
+                                "isShow": true
+                            },
+                            "particleData": [
+                                {
+                                    "isShow": true,
+                                    "colorData": {
+                                        "gradientColor": {
+                                            "gradientRotate": 0,
+                                            "gradientColors": ["#FFFFFFFF", "#000000FF"],
+                                            "gradientLocations": [0, 1]
+                                        },
+                                        "colorType": 1,
+                                        "solidColor": "#009EFFFF"
+                                    },
+                                    "speed": 1,
+                                    "name": "RisingLine"
+                                },
+                                {
+                                    "isShow": true,
+                                    "colorData": {
+                                        "gradientColor": {
+                                            "gradientRotate": 0,
+                                            "gradientColors": ["#FFFFFFFF", "#000000FF"],
+                                            "gradientLocations": [0, 1]
+                                        },
+                                        "colorType": 1,
+                                        "solidColor": "#009EFFFF"
+                                    },
+                                    "speed": 1,
+                                    "name": "FloatingParticles"
+                                }
+                            ]
+                        },
+                        "modelData": {
+                            "modelDecorateData": [],
+                            "modelStyleData": { "switchTime": 0.5, "styleCode": 0 },
+                            "signData": [],
+                            "ligatureData": [],
+                            "interactionAreaData": [],
+                            "modelModuleData": []
+                        },
+                        "cameraData": {
+                            "cameraType": null,
+                            "pointInfo": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0,
+                                "rx": 0,
+                                "ry": 0,
+                                "rz": 0,
+                                "rw": 1
+                            },
+                            "rotationXAxis": 30,
+                            "rotationYAxis": 0,
+                            "angleXMin": null,
+                            "angleXMax": null,
+                            "angleYMin": null,
+                            "angleYMax": null,
+                            "distance": 50,
+                            "disMax": null,
+                            "disMin": null,
+                            "lockRotation": false,
+                            "lockPan": false,
+                            "lockZoom": false,
+                            "rotateSpeed": null,
+                            "zoomSpeed": null,
+                            "panSpeed": null,
+                            "fpPosRotation": null,
+                            "fpRotateSpeed": null,
+                            "walkSpeed": null,
+                            "horizontalAngle": null,
+                            "horizontalRightAngleLimite": null,
+                            "horizontalLeftAngleLimite": null,
+                            "verticalAngle": null,
+                            "verticalUpAngleLimite": null,
+                            "verticalDownAngleLimite": null,
+                            "isLimite": false,
+                            "isRotation": true,
+                            "isRotationLimite": false,
+                            "isWalk": false,
+                            "isFly": false
+                        },
+                        "modelInteractionList": []
+                    }
+                }
+            ]
+        },
+        {
+            "scenesId": "8c0c962d700549a4803ead58e8cfa1ae",
+            "scenesName": "C层级",
+            "scenesOrder": 2,
+            "projectModel": {
+                "modelId": "",
+                "modelName": "",
+                "modelIosUrl": "",
+                "modelWebUrl": "",
+                "modelThumb": null,
+                "modelAndroidUrl": "",
+                "modelJson": "",
+                "modelVersion": 0,
+                "modelType": "",
+                "modelHotFixPath": ""
+            },
+            "projectBackground": {
+                "backgroundId": "",
+                "backgroundName": "",
+                "backgroundWebUrl": "",
+                "backgroundIosUrl": "",
+                "backgroundAndroidUrl": "",
+                "backgroundPictureUrl": "",
+                "previewUrl": ""
+            },
+            "projectPageList": [
+                {
+                    "pageId": "e44e4c88f70840fd99973c1082401d76",
+                    "pageName": "页面1",
+                    "pageOrder": 0,
+                    "snapshot": "",
+                    "inType": "",
+                    "outType": "",
+                    "pageBackground": {
+                        "backgroundImageWeb": "",
+                        "backgroundImageOpacity": 1,
+                        "backgroundColorOpacity": 1,
+                        "backgroundColor": {
+                            "gradientColor": {
+                                "gradientRotate": 0,
+                                "gradientColors": ["#FFFFFFFF", "#000000FF"],
+                                "gradientLocations": [0, 1]
+                            },
+                            "colorType": 0,
+                            "solidColor": "#FFFFFFFF"
+                        }
+                    },
+                    "projectTwoComponentList": [],
+                    "projectThreeComponent": {
+                        "themeData": {
+                            "skyBoxData": {
+                                "colorData": {
+                                    "gradientColor": {
+                                        "gradientRotate": 0,
+                                        "gradientColors": ["#7AB2D9FF", "#10131DFF"],
+                                        "gradientLocations": [0, 1]
+                                    },
+                                    "colorType": 2,
+                                    "solidColor": "#7AB2D9FF"
+                                },
+                                "switchTime": 0.5,
+                                "picturePath": "",
+                                "exposure": 1,
+                                "saturation": 1,
+                                "blurLevel": 0,
+                                "alpha": 0,
+                                "sourceType": 0
+                            },
+                            "lightData": {
+                                "color": "#FFFFFFFF",
+                                "intensity": 1,
+                                "switchTime": 0.5,
+                                "settingState": false,
+                                "angleY": 90,
+                                "isShow": true
+                            },
+                            "particleData": [
+                                {
+                                    "isShow": true,
+                                    "colorData": {
+                                        "gradientColor": {
+                                            "gradientRotate": 0,
+                                            "gradientColors": ["#FFFFFFFF", "#000000FF"],
+                                            "gradientLocations": [0, 1]
+                                        },
+                                        "colorType": 1,
+                                        "solidColor": "#009EFFFF"
+                                    },
+                                    "speed": 1,
+                                    "name": "RisingLine"
+                                },
+                                {
+                                    "isShow": true,
+                                    "colorData": {
+                                        "gradientColor": {
+                                            "gradientRotate": 0,
+                                            "gradientColors": ["#FFFFFFFF", "#000000FF"],
+                                            "gradientLocations": [0, 1]
+                                        },
+                                        "colorType": 1,
+                                        "solidColor": "#009EFFFF"
+                                    },
+                                    "speed": 1,
+                                    "name": "FloatingParticles"
+                                }
+                            ]
+                        },
+                        "modelData": {
+                            "modelDecorateData": [],
+                            "modelStyleData": { "switchTime": 0.5, "styleCode": 0 },
+                            "signData": [],
+                            "ligatureData": [],
+                            "interactionAreaData": [],
+                            "modelModuleData": []
+                        },
+                        "cameraData": {
+                            "cameraType": null,
+                            "pointInfo": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0,
+                                "rx": 0,
+                                "ry": 0,
+                                "rz": 0,
+                                "rw": 1
+                            },
+                            "rotationXAxis": 30,
+                            "rotationYAxis": 0,
+                            "angleXMin": null,
+                            "angleXMax": null,
+                            "angleYMin": null,
+                            "angleYMax": null,
+                            "distance": 50,
+                            "disMax": null,
+                            "disMin": null,
+                            "lockRotation": false,
+                            "lockPan": false,
+                            "lockZoom": false,
+                            "rotateSpeed": null,
+                            "zoomSpeed": null,
+                            "panSpeed": null,
+                            "fpPosRotation": null,
+                            "fpRotateSpeed": null,
+                            "walkSpeed": null,
+                            "horizontalAngle": null,
+                            "horizontalRightAngleLimite": null,
+                            "horizontalLeftAngleLimite": null,
+                            "verticalAngle": null,
+                            "verticalUpAngleLimite": null,
+                            "verticalDownAngleLimite": null,
+                            "isLimite": false,
+                            "isRotation": true,
+                            "isRotationLimite": false,
+                            "isWalk": false,
+                            "isFly": false
+                        },
+                        "modelInteractionList": []
+                    }
+                }
+            ]
+        }
+    ],
+    "createBy": "31",
+    "projectVersion": "V1.1.0",
+    "folderId": 725,
+    "caseCopy": 0
+}

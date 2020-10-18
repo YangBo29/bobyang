@@ -78,8 +78,8 @@ export default {
     urlLoaderExcludes: [/\.(png|jpe?g|gif|svg)$/],
     proxy: {
         '/apis': {
-            target: 'https://pre-api.raykite.com',
-            // target: 'http://test.api.raykite.com',
+            // target: 'https://pre-api.raykite.com',
+            target: 'http://test-api.raykite.com',
             changeOrigin: true,
             pathRewrite: { '^/apis': '' },
         },

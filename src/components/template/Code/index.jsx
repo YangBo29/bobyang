@@ -31,7 +31,7 @@ function Code(props) {
 
             // 监听内容变更
             monacoEditor.current.onDidChangeModelContent(e => {
-                console.log(e);
+                console.log(monacoEditor.current.getValue());
             });
 
             // 监听失去光标处理
