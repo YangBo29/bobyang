@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useRef } from 'react';
 import styles from './index.less';
+import Interpreter from 'js-interpreter';
+// import _ from 'lodash';
 
 function IndexDB(props) {
     let db = useRef(null);
@@ -45,7 +47,7 @@ function IndexDB(props) {
 
         // 数据库打开
         db.current.onsuccess = function(even) {
-            console.log(even);
+            // console.log(even);
             getMaxIdx();
         };
 
@@ -134,6 +136,18 @@ function IndexDB(props) {
     //         console.log(event);
     //     };
     // }
+
+    useEffect(() => {
+        const code = '6*7';
+        const code1 =
+            'function filter1 (data){return data.a}; var a = filter1({a:{b:{c:{a:function(){return 123}},e:[1,2,3],d:1}}}); function filter2(data){return data.b}; filter2(a); ';
+        let myInterpreter = new Interpreter(code);
+
+        myInterpreter.appendCode(code1);
+        myInterpreter.run();
+
+        console.log(myInterpreter.value);
+    });
 
     return (
         <div className={styles.indexdb_container}>
