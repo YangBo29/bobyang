@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useRef } from 'react';
 import styles from './index.less';
 import Interpreter from 'js-interpreter';
-// import _ from 'lodash';
 
 function IndexDB(props) {
     let db = useRef(null);
@@ -14,6 +13,7 @@ function IndexDB(props) {
     let name = useRef(null);
     let age = useRef(null);
     let email = useRef(null);
+    let search = useRef(null);
 
     useEffect(() => {
         db.current = window.indexedDB.open('yangbo', 1);
@@ -126,27 +126,63 @@ function IndexDB(props) {
     }
 
     // 根据类型搜索
-    // function searchData(type, val) {
-    //     let transaction = db.current.result.transaction(['mc'], 'readonly');
-    //     let objectStore = transaction.objectStore('mc');
+    function searchData(type) {
+        let transaction = db.current.result.transaction(['mc'], 'readonly');
+        let objectStore = transaction.objectStore('mc');
+        // let searchValue = search.current.value;
 
-    //     // 根据索引查询
-    //     let index = objectStore.index('age');
-    //     index.get(55).onsuccess = function(event) {
-    //         console.log(event);
-    //     };
-    // }
+        // 根据索引查询
+        let index = objectStore.index('age');
+        index.get(55).onsuccess = function(event) {
+            console.log(event);
+        };
+    }
 
     useEffect(() => {
         const code = '6*7';
         const code1 =
-            'function filter1 (data){return data.a}; var a = filter1({a:{b:{c:{a:function(){return 123}},e:[1,2,3],d:1}}}); function filter2(data){return data.b}; filter2(a); ';
+            'function filter1 (data){return data.a}; var a = filter1({a:{b:{c:{a:function(){return 123}},e:[1,2,3],d:1,e:{s:{g:/123/g, m: new Date()}}}}}); function filter2(data){return data.b}; filter2(a); ';
         let myInterpreter = new Interpreter(code);
 
         myInterpreter.appendCode(code1);
         myInterpreter.run();
 
-        console.log(myInterpreter.value);
+        function transData(data) {
+            // 基本数据类型
+            if (typeof data !== 'object') return data;
+
+            if (data.class === 'Array') {
+                // 数组
+                let arr = [];
+                // 数组
+                for (let key in data.properties) {
+                    arr.push(transData(data.properties[key]));
+                }
+                return arr;
+            } else if (data.class === 'Function') {
+                // 函数
+                return 1;
+            }
+
+            // 处理 RegExp 或者 Date 对象等
+            if (data.data) {
+                if (typeof data.data === 'object') {
+                    return data.data.toString();
+                }
+
+                return data.data;
+            }
+
+            // 对象
+            let obj = {};
+            for (let key in data.properties) {
+                obj[key] = transData(data.properties[key]);
+            }
+            return obj;
+        }
+
+        let res = transData(myInterpreter.value);
+        console.log(res);
     });
 
     return (
@@ -158,6 +194,12 @@ function IndexDB(props) {
                     <input className={styles.input_email} type="text" ref={email} />
                     <button type="button" className={styles.btn} onClick={addData}>
                         新增数据
+                    </button>
+                </div>
+                <div className={styles.data_inputs}>
+                    <input className={styles.input_search} type="text" ref={search} />
+                    <button type="button" className={styles.btn} onClick={searchData}>
+                        搜索数据
                     </button>
                 </div>
                 <button type="button" className={styles.btn} onClick={getData}>

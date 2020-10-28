@@ -74,6 +74,19 @@ export default [
         ],
     },
     {
+        linkName: '插件类',
+        linkKey: 'plugin',
+        linkActive: false,
+        linkNext: [
+            {
+                linkName: 'Spreadsheet',
+                linkKey: 'spreadsheet',
+                linkActive: true,
+                linkNext: null,
+            },
+        ],
+    },
+    {
         linkName: '配置类',
         linkKey: 'config',
         linkActive: false,
