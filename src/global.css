@@ -100,7 +100,7 @@ a:focus {
     text-decoration: none;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     width: 4px;
     height: 4px;
 }
@@ -113,7 +113,7 @@ a:focus {
 
 ::-webkit-scrollbar-track {
     background: #252525;
-}
+} */
 
 .clearfix:after {
     content: '.';
