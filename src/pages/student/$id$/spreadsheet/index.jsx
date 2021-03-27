@@ -22,7 +22,7 @@ const regData = [
                         Content: [
                             {
                                 X: '类别1',
-                                Y: '48',
+                                Y: 48,
                             },
                             {
                                 X: '类别2',
@@ -174,6 +174,7 @@ let config = {
     showToolbar: false,
     showGrid: true,
     showContextmenu: true,
+    sheetMaxLength: 7,
     view: {
         height: () => document.documentElement.clientHeight - 60,
         width: () => document.documentElement.clientWidth - 200,
@@ -331,6 +332,7 @@ function Excel(props) {
                     sheets = sheets.map(data => uts(data));
 
                     console.log(sheets);
+                    // console.log(JSON.stringify(data.rows));
                 });
 
             // 单格选中

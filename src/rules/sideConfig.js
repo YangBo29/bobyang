@@ -87,6 +87,19 @@ export default [
         ],
     },
     {
+        linkName: '语法类',
+        linkKey: 'grammar',
+        linkActive: false,
+        linkNext: [
+            {
+                linkName: 'Promise',
+                linkKey: 'promise',
+                linkActive: true,
+                linkNext: null,
+            },
+        ],
+    },
+    {
         linkName: '配置类',
         linkKey: 'config',
         linkActive: false,
