@@ -36,6 +36,7 @@
         "react-datepicker": "^3.0.0",
         "react-dom": "^16.14.0",
         "react-transition-group": "^4.4.1",
+        "three": "^0.129.0",
         "wurl": "^2.5.4"
     },
     "devDependencies": {

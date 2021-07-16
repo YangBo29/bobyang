@@ -16,8 +16,6 @@ interface Props {
 }
 
 const BasicLayout: React.FC<Props> = props => {
-    const { storeUserInfo } = props;
-
     return (
         <ErrorBoundary>
             <Nav />

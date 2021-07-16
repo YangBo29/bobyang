@@ -22,11 +22,35 @@ function PromiseComponent(props) {
             });
     }
 
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         document
+    //             .getElementById('child')
+    //             .contentWindow.postMessage({ aaa: 111, kkk: 222 }, 'http://127.0.0.1:5500');
+    //     }, 2000);
+
+    //     window.addEventListener(
+    //         'message',
+    //         function(event) {
+    //             if ('http://127.0.0.1:5500/postMessage.html'.includes(event.origin)) {
+    //                 console.log('收到信息啦', event);
+    //             }
+    //         },
+    //         false,
+    //     );
+    // }, []);
+
     return (
         <>
             <button type="button" onClick={promiseFn}>
                 promise
             </button>
+
+            <iframe
+                id="child"
+                src="http://127.0.0.1:5500/postMessage.html"
+                style={{ width: '500px', height: '300px' }}
+            ></iframe>
         </>
     );
 }

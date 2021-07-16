@@ -84,6 +84,12 @@ export default [
                 linkActive: true,
                 linkNext: null,
             },
+            {
+                linkName: 'SlickSlide',
+                linkKey: 'slickSlide',
+                linkActive: true,
+                linkNext: null,
+            },
         ],
     },
     {
@@ -94,6 +100,31 @@ export default [
             {
                 linkName: 'Promise',
                 linkKey: 'promise',
+                linkActive: true,
+                linkNext: null,
+            },
+        ],
+    },
+    {
+        linkName: 'webGL',
+        linkKey: 'webgl',
+        linkActive: false,
+        linkNext: [
+            {
+                linkName: 'Three',
+                linkKey: 'three',
+                linkActive: true,
+                linkNext: null,
+            },
+            {
+                linkName: 'Three1',
+                linkKey: 'three1',
+                linkActive: true,
+                linkNext: null,
+            },
+            {
+                linkName: 'Three2',
+                linkKey: 'three2',
                 linkActive: true,
                 linkNext: null,
             },
