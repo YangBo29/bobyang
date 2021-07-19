@@ -35,13 +35,19 @@ export default [
         linkNext: [
             {
                 linkName: 'button',
-                linkKey: 'Button',
+                linkKey: 'button',
                 linkActive: true,
                 linkNext: null,
             },
             {
                 linkName: 'nav',
-                linkKey: 'Nav',
+                linkKey: 'nav',
+                linkActive: true,
+                linkNext: null,
+            },
+            {
+                linkName: 'tree',
+                linkKey: 'tree',
                 linkActive: true,
                 linkNext: null,
             },
