@@ -19,15 +19,19 @@ function Tree(props) {
     }
 
     // 树结构
-    function createTree(trees = []) {
+    function createTree(trees = [], event = true) {
         if (!_.isArray(trees)) return <div>数据错误</div>;
         return (
             <div className={styles.tree_list}>
                 {trees.map((tree, i) => {
+                    if (!_.isArray(tree)) return null;
+
                     return (
                         <div className={styles.tree_list_group} key={i}>
                             <p className={styles.tree_list_group_title}>{i ? '场景层' : 'UI层'}</p>
-                            {create2dContent(tree)}
+                            {/* 2d 数据结构生成 */}
+                            {create2dContent(tree, event)}
+                            {/* { i ? create2dContent(tree,event) : create2dContent(tree, event)} */}
                         </div>
                     );
                 })}
@@ -39,20 +43,21 @@ function Tree(props) {
     function create2dContent(tree = [], event = true) {
         if (!_.isArray(tree)) return null;
 
+        // 2d | 3d 数据结构完成分配
         return tree.length ? tree.map(cpt => createClassify(cpt, event)) : null;
     }
 
-    // 结构生成
+    // 根节点开始生成结构
     function createClassify(cpt = {}, event = true, type = false) {
+        // 数据整合提取
         let data = extractData(cpt, cpt.componentType);
 
         switch (cpt.componentType) {
             case '5001':
-                return createItems(cpt.componentName, data, event);
             case '4901':
                 return createItems(cpt.componentName, data, event);
             default:
-                return createItems(data.componentId || data.id, data.componentName, event);
+                return createItem(data.componentId || data.id, data.componentName, event);
         }
     }
 
