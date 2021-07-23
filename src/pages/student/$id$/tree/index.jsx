@@ -2,7 +2,7 @@ import React, {
     useState,
     useRef,
     //    useEffect,
-    // useMemo,
+    useMemo,
 } from 'react';
 import { propData, checkedData } from './data';
 import styles from './index.less';
@@ -30,40 +30,49 @@ function Tree(props) {
     const search_input = useRef(null);
 
     // 选中项发生改变时更新选中文案
-    // const selectList = useMemo(() => {
-    //     if (select.length === 0) return '请选择目标';
-    //     let _list = [];
+    const selectList = useMemo(() => {
+        if (select.length === 0) return '请选择目标';
+        let _list = [];
 
-    //     function findSelect(select, data2d) {
-    //         const data = extractData(data2d, data2d.componentType);
-    //         // 根据选中项查找选中目标列表
-    //         select.forEach(link => {
-    //             // 查找目标
-    //             let _obj = [];
+        function findSelect(select, data2d) {
+            const data = extractData(data2d, data2d.componentType);
+            // 根据选中项查找选中目标列表
+            select.forEach(link => {
+                // 查找目标
+                let _obj = [];
 
-    //             if (data2d.componentType === '4901' && link.chainPage) {
-    //                 _obj = data.map(p => {
-    //                     return p.componentList.filter(cpt => cpt.componentId === link.chainId);
-    //                 });
-    //             } else {
-    //                 _obj = data.filter(cpt => cpt.componentId === link.chainId);
-    //             }
+                if (data2d.componentType === '4901' && link.chainPage) {
+                    let _dynamic = data.map(p => {
+                        return p.componentList.filter(cpt => cpt.componentId === link.chainId);
+                    });
 
-    //             // 寻找目标存在
-    //             if (_obj.length) {
-    //                 if (link.chainNext !== null) {
-    //                     findSelect(link.chainNext, _obj[0]);
-    //                 } else {
-    //                     _list.push(_obj[0].componentName);
-    //                 }
-    //             }
-    //         });
-    //     }
+                    _dynamic.forEach(cpt => {
+                        _obj = [..._obj, ...cpt];
+                    });
+                } else {
+                    _obj = data.filter(cpt => cpt.componentId === link.chainId);
+                }
 
-    //     findSelect(select, data2d);
+                // 寻找目标存在
+                if (_obj.length) {
+                    if (link.chainNext !== null) {
+                        findSelect(link.chainNext, _obj[0]);
+                    } else {
+                        _list.push(_obj[0].componentName);
+                    }
+                }
+            });
+        }
 
-    //     return _list.join('') || '请检查选中项中是否存在';
-    // }, [select, data2d]);
+        findSelect(select, data2d);
+
+        switch (_list.length) {
+            case 0:
+                return '请检查选中项中是否存在';
+            default:
+                return _list.join('、');
+        }
+    }, [select, data2d]);
 
     // 数据结构分选
     function extractData(data, type) {
@@ -289,8 +298,8 @@ function Tree(props) {
         <div className={styles.tree_list} style={{ width: '300px' }}>
             <div className={styles.view_area}>
                 {/* 选中项名称列表， 单选显示名，多闲显示首选项 + ... */}
-                {/* <p className={styles.active_list}>{selectList}</p> */}
-                <p className={styles.active_list}>空项</p>
+                <p className={styles.active_name}>{selectList}</p>
+                {/* <p className={styles.active_list}>空项</p> */}
                 {/* 搜索组件 */}
                 {search ? (
                     <div className={styles.search_cpt}>
