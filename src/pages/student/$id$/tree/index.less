@@ -12,10 +12,24 @@
     user-select: none;
 }
 
-.items {
+.item {
     padding-left: 15px;
+}
 
-    .item {
-        padding-left: 15px;
+.item_base {
+    cursor: pointer;
+
+    &:hover {
+        background: #efefef;
     }
+}
+
+.item_act {
+    background: #efefef;
+}
+
+.item_dis {
+    color: #aaa;
+    cursor: not-allowed;
+    pointer-events: none;
 }
