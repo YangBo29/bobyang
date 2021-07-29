@@ -30,7 +30,7 @@ export const propData = [
                                 "componentList": [
                                     {
                                         "componentId": "4UyEvfXUoexXitypMBR7CTsKtLHR9A4S",
-                                        "componentName": "组合2",
+                                        "componentName": "组合8",
                                         "componentType": "5001",
                                         "groupModel": {
                                             "groupList": [
@@ -41,7 +41,7 @@ export const propData = [
                                                 },
                                                 {
                                                     "componentId": "YjVFhjyvgeilTzCZm0nAgtUcb2z4ay8I",
-                                                    "componentName": "圆形2",
+                                                    "componentName": "圆形6",
                                                     "componentType": "2112",
                                                 }
                                             ]
@@ -66,13 +66,13 @@ export const propData = [
                                         "groupModel": {
                                             "groupList": [
                                                 {
-                                                    "componentId": "hdHvdiIfYI8oWM7hB1gLhDKuTu8HijcV",
+                                                    "componentId": "7hB1gLhDKuTu8HijcVhdHvdiIfYI8oWM",
                                                     "componentName": "矩形4",
                                                     "componentType": "2110",
                                                 },
                                                 {
-                                                    "componentId": "YjVFhjyvgeilTzCZm0nAgtUcb2z4as8I",
-                                                    "componentName": "圆形4",
+                                                    "componentId": "0nAgtUcb2z4as8IYjVFhjyvgeilTzCZm",
+                                                    "componentName": "圆形2",
                                                     "componentType": "2112",
                                                 }
                                             ]
@@ -101,49 +101,40 @@ export const checkedData = {
     tab: "blank",
     replaceVars: [],
     realizeMovement: "40004",
-    linkUrl: [
-        {
-            chainId: "Dt9abFMXW3qzUu8aRoIF0wczCwhhRygb",
-            chainType: "2D",
-            chainPage: "",
-            // chainNext: null,
-            chainNext: [
-                {
-                    chainId: "dTuLeDoY7NK6bpi6Aktgp7IQkO0oWy21",
-                    chainType: "2D",
-                    chainPage: "",
-                    // chainNext: null,
-                    chainNext: [
-                        {
-                            chainId: "4UyEvfXUoexXitypMBR7CTsKtLHR9A4S",
-                            chainType: "2D",
-                            chainPage: "THTvd2xjXc8sf6MLiUXD4KDYo46Ig2Z8",
-                            // chainNext: null,
-                            chainNext: [
-                                {
-                                    chainId: "YjVFhjyvgeilTzCZm0nAgtUcb2z4ay8I",
-                                    chainType: "2D",
-                                    chainPage: "",
-                                    chainNext: null
-                                },
-                                {
-                                    chainId: "hdHvdiIfYI8oWM7hB1gLhDKuTu8HijZV",
-                                    chainType: "2D",
-                                    chainPage: "",
-                                    chainNext: null
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            chainId: "hjoZoWY0qdbNGCW9E6EnlcAEWZ8N1m2s",
-            chainType: "2D",
-            chainPage: "",
-            chainNext: null,
-        },
+    linkId: [
+        // {
+        //     "chainId": "Dt9abFMXW3qzUu8aRoIF0wczCwhhRygb",
+        //     "chainType": "2D",
+        //     "chainPage": "",
+        //     "chainNext": [
+        //         {
+        //             "chainId": "dTuLeDoY7NK6bpi6Aktgp7IQkO0oWy21",
+        //             "chainType": "2D",
+        //             "chainPage": "",
+        //             "chainNext": [
+        //                 {
+        //                     "chainId": "bxlWkf1bguluNKK7NRVzdUCXT0pBPC6j",
+        //                     "chainType": "2D",
+        //                     "chainPage": "QDXmW4BniKC4xgsuK4HDM04Yr8M7aTkj",
+        //                     "chainNext": [
+        //                         {
+        //                             "chainId": "0nAgtUcb2z4as8IYjVFhjyvgeilTzCZm",
+        //                             "chainType": "2D",
+        //                             "chainPage": "",
+        //                             "chainNext": null
+        //                         }
+        //                     ]
+        //                 }
+        //             ]
+        //         }
+        //     ]
+        // },
+        // {
+        //     "chainId": "hjoZoWY0qdbNGCW9E6EnlcAEWZ8N1m2s",
+        //     "chainType": "2D",
+        //     "chainPage": "",
+        //     "chainNext": null
+        // }
     ],
     scenesId: "9bf28f4a2b8f4f8493775144800d627d",
     pageId: "5910fffc4be04da893dcbae7d7d32e49",
