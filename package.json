@@ -1,4 +1,5 @@
 {
+    "name": "bobyang",
     "private": true,
     "scripts": {
         "start": "umi dev",
@@ -66,8 +67,7 @@
         "umi": "^2.9.0",
         "umi-plugin-react": "^1.8.0",
         "umi-types": "^0.3.0",
-        "url-loader": "^4.1.0",
-        "x-data-spreadsheet": "^1.1.8"
+        "url-loader": "^4.1.0"
     },
     "lint-staged": {
         "*.{ts,tsx}": [
