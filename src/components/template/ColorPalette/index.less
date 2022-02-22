@@ -1,0 +1,534 @@
+/**
+ * author : yangbo
+ * date : 2020/03/11 13:53:58
+ * fileName: index.less
+ * description : 调色版样式
+**/
+
+@white_60: rgba(255, 255, 255, 0.6);
+@color_panel_bg: #313742;
+@color_panel_shadow: rgba(0, 0, 0, 0.2);
+@color_tab_br: #404859;
+@color_tab_tran: #d13b81;
+@color_tab_pure: #171a22;
+@color_tab_grad: linear-gradient(90deg, rgba(23, 26, 34, 1) 0%, rgba(78, 88, 116, 1) 100%);
+@color_gap_line: #23262d;
+@color_warp_bg: #404859;
+@color_font: #b6c2d9;
+@color_font_act: #249dff;
+@color_input_bg: #151619;
+@color_input_br: #404859;
+@color_br_act: #0072ce;
+
+.color_panel {
+    position: fixed;
+
+    z-index: 197;
+
+    & > * {
+        user-select: none;
+    }
+}
+
+.drag_move {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    cursor: move;
+    z-index: 9;
+}
+
+.color_panel_main {
+    width: 230px;
+    // min-height: 350px;
+    border-radius: 4px;
+    color: @white_60;
+    background: @color_panel_bg;
+    box-shadow: 0px 0px 10px 0px @color_panel_shadow;
+    text-align: left;
+    font-size: 12px;
+}
+
+.color_panel_header {
+    position: relative;
+    height: 36px;
+    padding: 0 10px;
+    border-bottom: 1px solid @color_gap_line;
+    display: flex;
+    align-items: center;
+
+    .tran_color,
+    .pure_color,
+    .grad_color {
+        display: block;
+        border-width: 1px;
+        border-style: solid;
+        width: 20px;
+        height: 16px;
+        box-sizing: border-box;
+        margin-right: 10px;
+        border-color: @color_tab_br;
+        position: relative;
+    }
+
+    .tran_color {
+        &::before {
+            content: '';
+            position: absolute;
+            top: 7px;
+            left: 1px;
+            width: 16px;
+            height: 1px;
+            background: @color_tab_tran;
+            transform: rotate(-35deg);
+            transform-origin: 50% 50%;
+        }
+        // background-image: linear-gradient(45deg, #666 25%, transparent 25%),
+        //     linear-gradient(-45deg, #666 25%, transparent 25%),
+        //     linear-gradient(45deg, transparent 75%, #666 75%),
+        //     linear-gradient(-45deg, transparent 75%, #666 75%);
+        // background-size: 6px 6px;
+        // background-position: 0 0, 0 3px, 3px -3px, -3px 0;
+    }
+
+    .pure_color {
+        background: @color_tab_pure;
+    }
+
+    .grad_color {
+        background: @color_tab_grad;
+    }
+
+    .color_act {
+        border-color: @color_br_act;
+    }
+}
+
+.grad_setting {
+    height: 30px;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    border-bottom: 1px solid @color_gap_line;
+
+    .grad_area {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 100%;
+    }
+
+    .grad_area_bg {
+        width: 100%;
+        height: 6px;
+        background-image: linear-gradient(45deg, #666 25%, transparent 25%),
+            linear-gradient(-45deg, #666 25%, transparent 25%),
+            linear-gradient(45deg, transparent 75%, #666 75%),
+            linear-gradient(-45deg, transparent 75%, #666 75%);
+        background-size: 6px 6px;
+        background-position: 0 0, 0 3px, 3px -3px, -3px 0;
+    }
+
+    .grad_area_color {
+        width: 100%;
+        height: 6px;
+        border-radius: 6px;
+        position: relative;
+        box-sizing: border-box;
+        border: 1px solid #567180;
+    }
+
+    .grad_path {
+        position: absolute;
+        top: 0;
+        left: 5px;
+        right: 5px;
+        bottom: 0;
+    }
+
+    .grad_point {
+        position: absolute;
+        box-sizing: border-box;
+        top: -3px;
+        width: 10px;
+        height: 10px;
+        background: transparent;
+        border-radius: 1px;
+        border: 2px solid rgba(255, 255, 255, 1);
+        box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        transform: translateX(-50%);
+    }
+
+    .grad_point_act {
+        transform: translateX(-50%) scale(1.2);
+    }
+}
+.grad_angle {
+    display: flex;
+    align-items: center;
+    padding: 7px 10px;
+    border-bottom: 1px solid @color_gap_line;
+
+    .angle_txt {
+        white-space: nowrap;
+        color: @color_font;
+        font-size: 12px;
+    }
+
+    .angle_warp_area {
+        margin: 0 12px 0 6px;
+        width: 100px;
+        display: flex;
+        align-items: center;
+        height: 8px;
+        flex-shrink: 0;
+    }
+
+    .angle_warp {
+        position: relative;
+        width: 100px;
+        height: 2px;
+        border-radius: 2px;
+        background: @color_warp_bg;
+    }
+
+    .angle_bar {
+        height: 2px;
+        border-radius: 2px;
+        display: block;
+        background: @color_br_act;
+        pointer-events: none;
+    }
+
+    .angle_bar_pos {
+        position: absolute;
+        top: 0;
+        left: 4px;
+        right: 4px;
+    }
+
+    .angle_point {
+        position: absolute;
+        top: -3px;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        background: #d6e4ff;
+        border-radius: 1px;
+        pointer-events: none;
+        transform: translateX(-50%);
+    }
+
+    .angle_input_group {
+        width: 46px;
+        height: 22px;
+        position: relative;
+
+        .angle_input {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: @color_input_bg;
+            border: 1px solid @color_input_br;
+            caret-color: @color_br_act;
+            color: @color_font;
+            font-size: 12px;
+            padding: 0 10px 0 4px;
+            box-sizing: border-box;
+            border-radius: 2px;
+
+            &:focus,
+            &:active {
+                border-color: @color_br_act;
+            }
+        }
+
+        .icon_deg {
+            position: absolute;
+            top: 3px;
+            right: 5px;
+            color: #474c56;
+        }
+    }
+}
+
+.color_picker_body {
+    padding: 0 10px;
+
+    .color_title {
+        color: @color_font;
+        font-size: 12px;
+        margin: 10px 0;
+    }
+
+    .hvs_picker {
+        .s_v_panel {
+            position: relative;
+            height: 120px;
+            margin-bottom: 10px;
+            background-clip: content-box;
+            overflow: hidden;
+
+            .base_layer,
+            .s_layer,
+            .v_layer {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+            }
+
+            .s_layer {
+                background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='#ffffff', endColorstr='#00ffffff');
+            }
+
+            .v_layer {
+                background: -webkit-gradient(
+                    linear,
+                    left top,
+                    left bottom,
+                    color-stop(0%, transparent),
+                    color-stop(100%, black)
+                );
+                background: linear-gradient(to bottom, transparent 0%, black 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#000000', GradientType=0);
+            }
+
+            .pointer {
+                position: absolute;
+                box-sizing: border-box;
+                width: 14px;
+                height: 14px;
+                transform: translate(-50%, -50%);
+                box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+                border: 2px solid #fff;
+                pointer-events: none;
+                background: transparent;
+            }
+        }
+    }
+
+    // h、a 设置面板
+    .row_layer {
+        display: flex;
+        align-items: center;
+
+        .h_a_bands {
+            flex: 1;
+            margin-right: 8px;
+
+            .h_band,
+            .a_band {
+                position: relative;
+                height: 6px;
+                // border: 1px solid rgba(0, 0, 0, 0.12);
+                border-radius: 1px;
+                cursor: pointer;
+                background-clip: padding-box;
+                box-sizing: border-box;
+
+                .rail {
+                    position: absolute;
+                    top: 1px;
+                    bottom: 1px;
+                    left: 5px;
+                    right: 5px;
+                    box-sizing: border-box;
+                }
+
+                .wrap {
+                    position: absolute;
+                    box-sizing: border-box;
+                    top: -3px;
+                    width: 10px;
+                    height: 10px;
+                    transform: translateX(-50%);
+                    background: transparent;
+                    border: 2px solid #fff;
+                    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.3);
+                    z-index: 3;
+                    pointer-events: none;
+                    user-select: auto;
+                }
+            }
+
+            .h_band {
+                margin-bottom: 6px;
+                background-image: linear-gradient(
+                    to left,
+                    #ff0000,
+                    #ff0080,
+                    #ff00ff,
+                    #8000ff,
+                    #0000ff,
+                    #0080ff,
+                    #00ffff,
+                    #00ff80,
+                    #00ff00,
+                    #80ff00,
+                    #ffff00,
+                    #ff8000,
+                    #ff0000
+                );
+            }
+            .a_band {
+                background-image: linear-gradient(45deg, #666 25%, transparent 25%),
+                    linear-gradient(-45deg, #666 25%, transparent 25%),
+                    linear-gradient(45deg, transparent 75%, #666 75%),
+                    linear-gradient(-45deg, transparent 75%, #666 75%);
+                background-size: 6px 6px;
+                background-position: 0 0, 0 3px, 3px -3px, -3px 0;
+            }
+        }
+        .view_color {
+            width: 20px;
+            height: 20px;
+            border: 1px solid rgba(69, 77, 102, 1);
+            overflow: hidden;
+            box-sizing: border-box;
+            background-image: linear-gradient(45deg, #666 25%, transparent 0),
+                linear-gradient(-45deg, #666 25%, transparent 0),
+                linear-gradient(45deg, transparent 75%, #666 0),
+                linear-gradient(-45deg, transparent 75%, #666 0);
+            background-size: 12px 12px;
+            background-position: -1px -1px, -1px 5px, 5px -7px, -7px -1px;
+        }
+
+        .view_select_color {
+            height: 100%;
+        }
+    }
+
+    // 手动设置色值
+    .hand_section {
+        display: flex;
+        justify-content: space-between;
+        padding-right: 1px;
+        margin: 12px 0;
+        box-sizing: border-box;
+        .color_input {
+            width: 30px;
+            position: relative;
+
+            &:nth-of-type(1) {
+                width: 74px;
+            }
+
+            &.hex_input {
+                input {
+                    padding-left: 12px;
+                }
+
+                &::before {
+                    content: '#';
+                    position: absolute;
+                    top: 4px;
+                    left: 4px;
+                    color: #5d626e;
+                }
+            }
+
+            input {
+                width: 100%;
+                height: 22px;
+                padding: 0 2px;
+                background: @color_input_bg;
+                text-align: center;
+                border: 1px solid @color_input_br;
+                border-radius: 2px;
+                color: @color_font;
+                align-self: stretch;
+                line-height: 1;
+                overflow: hidden;
+                transition: 0.2s ease-out;
+                transition-property: border, box-shadow;
+                box-sizing: border-box;
+                font-family: inherit;
+                font-size: 12px;
+                caret-color: @color_br_act;
+
+                &:active,
+                &:focus {
+                    border-color: @color_br_act;
+                }
+            }
+
+            span {
+                display: block;
+                line-height: 12px;
+                margin-top: 4px;
+                color: @color_font;
+                text-align: center;
+            }
+        }
+    }
+}
+
+// 常用色值列表
+.custom_color_list {
+    padding: 10px;
+    border-top: 1px solid @color_gap_line;
+    p {
+        height: 24px;
+        .custom_tab {
+            position: relative;
+            margin-right: 10px;
+            line-height: 100%;
+            cursor: pointer;
+            &.tab_act {
+                color: @color_font_act;
+                cursor: default;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 20px;
+                    left: 0;
+                    width: 100%;
+                    height: 0;
+                    border-bottom: 1px solid @color_font_act;
+                }
+            }
+        }
+    }
+    .custom_palette {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+
+        .custom_palette_color {
+            list-style: none;
+            width: 21px;
+            height: 21px;
+            cursor: pointer;
+            border-radius: 2px;
+            // border: 1px solid rgba(0, 0, 0, 0.12);
+            margin-top: 4px;
+            margin-right: 6px;
+            box-sizing: border-box;
+            position: relative;
+
+            &:nth-of-type(8n + 8) {
+                margin-right: 0;
+            }
+
+            &.sys_act::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                // background: url('../../../assets/views/icon_checked.png') center no-repeat;
+                // background-size: contain;
+                background: #0000ff;
+            }
+        }
+    }
+}

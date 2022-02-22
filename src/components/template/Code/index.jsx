@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef } from 'react';
 import { connect } from 'dva';
 import styles from './index.less';
 import classNames from 'classnames';
+import defaultCode from './defaultCode';
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.main.js';
 import 'monaco-editor/esm/vs/editor/contrib/find/findController.js';
 import 'monaco-editor/esm/vs/basic-languages/javascript/javascript.contribution';
@@ -23,23 +24,30 @@ function Code(props) {
         if (code && code_content.current) {
             console.log(monaco);
             monacoEditor.current = monaco.editor.create(code_content.current, {
-                value: ['function x() {', '\tconsole.log("Hello world!");', '}'].join('\n'),
+                value: defaultCode,
                 language: 'javascript',
                 automaticLayout: true,
                 theme: 'vs-white',
+                folding: true,
+                scrollbar: {
+                    verticalScrollbarSize: 8,
+                    horizontalScrollbarSize: 8,
+                },
+                minimap: {
+                    enabled: true,
+                },
+                formatOnPaste: true,
+                renderValidationDecorations: 'on',
             });
-
             // 监听内容变更
             monacoEditor.current.onDidChangeModelContent(e => {
                 console.log(monacoEditor.current.getValue());
             });
-
             // 监听失去光标处理
             monacoEditor.current.onDidBlurEditorWidget(e => {
                 console.log(e);
             });
         }
-
         return () => {
             if (monacoEditor.current) {
                 monacoEditor.current.dispose();

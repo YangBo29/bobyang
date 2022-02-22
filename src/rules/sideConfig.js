@@ -51,6 +51,12 @@ export default [
                 linkActive: true,
                 linkNext: null,
             },
+            {
+                linkName: 'color',
+                linkKey: 'color',
+                linkActive: true,
+                linkNext: null,
+            },
         ],
     },
     {

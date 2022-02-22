@@ -7,6 +7,7 @@
 
 // ref: https://umijs.org/config/
 import { resolve } from 'path';
+// import MonacoWebpackPlugin from 'monaco-editor-webpack-plugin';
 
 export default {
     treeShaking: true, //用于描述移除 JavaScript 上下文中的未引用代码
@@ -112,5 +113,11 @@ export default {
         config.when(process.env.NODE_ENV === 'production', config => {
             config.output.filename('raydata.[hash:8].js');
         });
+        // config.plugin('monaco-editor').use(MonacoWebpackPlugin, [
+        //     {
+        //         languages: ['javascript', 'css', 'html', 'json'],
+        //         features: ['coreCommands', 'find'],
+        //     },
+        // ]);
     },
 };

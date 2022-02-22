@@ -32,25 +32,6 @@ export default function NavRouter(props) {
                     {i}
                 </span>
             ))}
-            {/* <div onClick={handleClick1}>1111</div>
-            <div onClick={handleClick1}>1111</div>
-            <div onClick={handleClick1}>1111</div>
-            <div onClick={handleClick1}>1111</div>
-            <div onClick={handleClick1}>1111</div>
-            <div onClick={handleClick1}>1111</div>
-            <div onClick={handleClick1}>1111</div>
-            <div onClick={handleClick1}>1111</div>
-            <div onClick={handleClick1}>1111</div>
-            <div onClick={handleClick1}>1111</div>
-            <div onClick={handleClick1}>1111</div>
-            <div onClick={handleClick1}>1111</div>
-            <div onClick={handleClick1}>1111</div>
-            <div onClick={handleClick1}>1111</div>
-            <div onClick={handleClick1}>1111</div>
-            <div onClick={handleClick1}>1111</div>
-            <div onClick={handleClick1}>1111</div>
-            <div onClick={handleClick1}>1111</div>
-            <div onClick={handleClick1}>1111</div> */}
             <span>{count}</span>
             <button onClick={addCount}>add count</button>
         </div>
