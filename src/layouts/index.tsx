@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
 import styles from './index.less';
-import apis from '../services/apis.js';
-import utils from '../utils/index.js';
 import { connect } from 'dva';
-import { router } from 'umi';
 import ErrorBoundary from '@components/pulgIn/ErrorBoundary/index.jsx';
 import Nav from '@components/pulgIn/Nav/index.jsx';
 import SideList from '@components/pulgIn/SideList/index.jsx';
