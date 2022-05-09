@@ -57,7 +57,11 @@ function SideList(props) {
         );
     }
 
-    return <div className={styles.side_list}>{createList}</div>;
+    return (
+        <div className={styles.side_list} style={{ overflowY: 'auto' }}>
+            {createList}
+        </div>
+    );
 }
 
 export default SideList;

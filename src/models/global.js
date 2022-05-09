@@ -11,7 +11,7 @@ export default {
         pathName: '', // 当前页面路由 String
         update: false, // 页面更新
         routerPath: '', // 当前路由名
-        code: true, // 代码面板
+        code: false, // 代码面板
     },
 
     // 事件池

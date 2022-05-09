@@ -39,7 +39,10 @@
         "react-monaco-editor": "^0.47.0",
         "react-transition-group": "^4.4.1",
         "three": "^0.129.0",
-        "wurl": "^2.5.4"
+        "wurl": "^2.5.4",
+        "spreadsheet": "^1.5.5",
+        "rayslider": "^1.0.3",
+        "@monaco-editor/react": "^4.4.4"
     },
     "devDependencies": {
         "@types/jest": "^23.3.12",
