@@ -80,7 +80,8 @@ export default {
     proxy: {
         '/apis': {
             // target: 'https://pre-api.raykite.com',
-            target: 'http://test-api.raykite.com',
+            // target: 'http://10.10.10.164:8880',
+            target: 'http://10.10.10.140/apis',
             changeOrigin: true,
             pathRewrite: { '^/apis': '' },
         },

@@ -140,6 +140,12 @@ export default [
                 linkActive: true,
                 linkNext: null,
             },
+            {
+                linkName: 'Cesium1',
+                linkKey: 'cesium1',
+                linkActive: true,
+                linkNext: null,
+            },
         ],
     },
     {

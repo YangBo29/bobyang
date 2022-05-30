@@ -99,6 +99,11 @@ export default function request(url, options) {
             // if (newOptions.method === 'DELETE' || response.status === 204) {
             //   return response.text();
             // }
+            if (response.redirected && response.status === 200) {
+                // console.log(1111);
+                // window.open(response.url);
+                // window.location.href = response.url;
+            }
 
             // 增加服务器返回时间字段
             const res = response.json();
