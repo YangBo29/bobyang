@@ -1,6 +1,6 @@
 import React from 'react';
 // import styles from './index.less';
-import Slider from 'slider';
+import Slider from 'rayslider';
 import './slick.less';
 
 const config = {

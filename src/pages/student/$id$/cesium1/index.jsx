@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as Cesium from 'cesium';
 import 'cesium/Build/Cesium/Widgets/widgets.css';
 export default function Cesium1(props) {
@@ -35,5 +35,47 @@ export default function Cesium1(props) {
         // });
     }, []);
 
-    return <div id="cesiumContainer" width="100%" height="100%"></div>;
+    const canvas_dom = useRef(null);
+
+    // useEffect(() => {
+    //     let viewer = new window.Cesium.Viewer('cesiumContainer', {
+    //         geocoder: false,
+    //         homeButton: false,
+    //         sceneModePicker: false,
+    //         baseLayerPicker: false,
+    //         navigationHelpButton: false,
+    //         animation: false,
+    //         // creditContainer: 'credit',
+    //         timeline: false,
+    //         fullscreenButton: false,
+    //         vrButton: false,
+    //     });
+    //     // viewer.extend(window.Cesium.viewerCesiumInspectorMixin);
+    //     viewer.scene.postProcessStages.fxaa.enabled = true;
+    //     viewer.scene.debugShowFramesPerSecond = true;
+
+    //     // viewer.entities.add({
+    //     //     name: 'Red box with black outline',
+    //     //     position: window.Cesium.Cartesian3.fromDegrees(-0.0, 40.0, 50.0),
+    //     //     box: {
+    //     //         dimensions: new window.Cesium.Cartesian3(100.0, 100.0, 100.0),
+    //     //         material: window.Cesium.Color.RED.withAlpha(0.5),
+    //     //         outline: true,
+    //     //         outlineColor: window.Cesium.Color.BLACK,
+    //     //     },
+    //     // });
+
+    //     let scenes = [
+    //         // 'http://10.10.7.246:8090/iserver/services/3D-PingMianblock/rest/realspace',
+    //         // 'http://10.10.3.144:8090/iserver/services/3D-sanwei_noins/rest/realspace',
+    //         'http://www.supermapol.com/realspace/services/3D-suofeiya_church/rest/realspace',
+    //         'http://www.supermapol.com/realspace/services/3D-NewCBD/rest/realspace',
+    //         'https://www.supermapol.com/realspace/services/3D-CQmodel_wireframe_2000/rest/realspace',
+    //         'https://www.supermapol.com/realspace/services/3D-cloud/rest/realspace',
+    //     ];
+    //     viewer.scene.open(scenes[0]);
+    //     // viewer.zoomTo(viewer.entities);
+    // }, []);
+
+    return <div ref={canvas_dom} id="cesiumContainer" width="100%" height="100%"></div>;
 }
