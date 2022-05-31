@@ -1,14 +1,29 @@
 import React, { useEffect, useRef } from 'react';
 import * as Cesium from 'cesium';
 import 'cesium/Build/Cesium/Widgets/widgets.css';
+
+window.CESIUM_BASE_URL = '/';
+
+Cesium.Ion.defaultAccessToken =
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJiN2UzMjI1Mi1iNzAwLTQ3ZGUtOGZhNi00NTliNTJjNTI0NzYiLCJpZCI6OTU2NTgsImlhdCI6MTY1Mzg5MzYyOX0.1fja7oZmr2xtodTRksAcFt3vW1souhM0sNXQJyhg9Pg';
+
 export default function Cesium1(props) {
     useEffect(() => {
-        Cesium.Ion.defaultAccessToken =
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlOTA4ZDQxOC0yZDRhLTQ3ZmItYjc0Yy04ZDVhZDVmMjMzZTkiLCJpZCI6OTU2NTgsImlhdCI6MTY1Mzg5NTAzN30.mTyJ3He9UGK8z22TY6axH7NSJzfyt3ULia4xyy1xygo';
         const viewer = new Cesium.Viewer('cesiumContainer', {
             terrainProvider: Cesium.createWorldTerrain(),
         });
-        console.log(viewer);
+        console.log(viewer.scene);
+
+        // let scenes = [
+        //     // 'http://10.10.7.246:8090/iserver/services/3D-PingMianblock/rest/realspace',
+        //     // 'http://10.10.3.144:8090/iserver/services/3D-sanwei_noins/rest/realspace',
+        //     'http://www.supermapol.com/realspace/services/3D-suofeiya_church/rest/realspace',
+        //     'http://www.supermapol.com/realspace/services/3D-NewCBD/rest/realspace',
+        //     'https://www.supermapol.com/realspace/services/3D-CQmodel_wireframe_2000/rest/realspace',
+        //     'https://www.supermapol.com/realspace/services/3D-cloud/rest/realspace',
+        // ];
+        // viewer.scene.open(scenes[0]);
+
         // const buildingTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings());
         // viewer.camera.flyTo({
         //     destination: Cesium.Cartesian3.fromDegrees(-122.4175, 37.655, 400),
