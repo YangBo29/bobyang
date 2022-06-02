@@ -1,13 +1,14 @@
 /*
  * Author: vicky
  * Date: 2020-06-02 14:02:15
- * LastEditors:
- * LastEditTime: 2020-06-29 18:07:37
+ * LastEditors: yangbo
+ * LastEditTime: 2022-06-01 16:38
  */
 
 // ref: https://umijs.org/config/
-import { resolve } from 'path';
-// import MonacoWebpackPlugin from 'monaco-editor-webpack-plugin';
+import { resolve, join } from 'path';
+const cesiumSource = 'node_modules/cesium/Source';
+const cesiumWorkers = '../Build/Cesium/Workers';
 
 export default {
     treeShaking: true, //用于描述移除 JavaScript 上下文中的未引用代码
@@ -18,17 +19,14 @@ export default {
         // ie: 11,
     },
     define: {
+        CESIUM_BASE_URL: JSON.stringify(''),
         'process.env': {
             DEPLOY: 'public', // 公测：public 私有：private
         },
     },
-    // routes: [
-    //     {
-    //         path: '/',
-    //         component: '../layouts/index',
-    //         routes: [{ path: '/', component: '../pages/index' }],
-    //     },
-    // ],
+    // paths: {
+    //     cesium: ['node_modules/cesium/Source'],
+    // },
     plugins: [
         // ref: https://umijs.org/plugin/umi-plugin-react.html
         [
@@ -75,7 +73,26 @@ export default {
         '@assets': resolve(__dirname, '../src/assets'),
         // 全局·规则
         '@rules': resolve(__dirname, '../src/rules'),
+        '@cesium': resolve(cesiumSource),
     },
+    copy: [
+        {
+            from: join(cesiumSource, cesiumWorkers),
+            to: 'Workers',
+        },
+        {
+            from: join(cesiumSource, 'Assets'),
+            to: 'Assets',
+        },
+        {
+            from: join(cesiumSource, 'Widgets'),
+            to: 'Widgets',
+        },
+        {
+            from: join(cesiumSource, 'Core'),
+            to: 'Core',
+        },
+    ],
     urlLoaderExcludes: [/\.(png|jpe?g|gif|svg)$/],
     proxy: {
         '/apis': {
@@ -85,10 +102,19 @@ export default {
             changeOrigin: true,
             pathRewrite: { '^/apis': '' },
         },
-        // '/apis': {
-        //     target: 'http://111.229.79.141/',
-        //     changeOrigin: true,
-        // },
+        '/cesium': {
+            // target: 'https://map.geoq.cn',
+            target: 'https://wprd02.is.autonavi.com',
+            changeOrigin: true,
+        },
+        '/p2': {
+            target: 'https://webrd01.is.autonavi.com/',
+            changeOrigin: true,
+        },
+        '/supermapol': {
+            target: 'http://www.supermapol.com/',
+            changeOrigin: true,
+        },
     },
     theme: './src/theme/theme_white.js',
     hash: true, //路径添加hash值，部署防止缓存
@@ -114,11 +140,28 @@ export default {
         config.when(process.env.NODE_ENV === 'production', config => {
             config.output.filename('raydata.[hash:8].js');
         });
-        // config.plugin('monaco-editor').use(MonacoWebpackPlugin, [
+        // config.plugin('cesium').use(CopyWebpackPlugin, [
         //     {
-        //         languages: ['javascript', 'css', 'html', 'json'],
-        //         features: ['coreCommands', 'find'],
+        //         from: join(cesiumSource, cesiumWorkers),
+        //         to: 'Workers',
+        //     },
+        //     {
+        //         from: join(cesiumSource, 'Assets'),
+        //         to: 'Assets',
+        //     },
+        //     {
+        //         from: join(cesiumSource, 'Widgets'),
+        //         to: 'Widgets',
+        //     },
+        //     {
+        //         from: join(cesiumSource, 'Core'),
+        //         to: 'Core',
         //     },
         // ]);
+
+        // 配置一个全局变量，不然会有个错误
+        // new webpack.DefinePlugin({
+        //     CESIUM_BASE_URL: JSON.stringify(''),
+        // });
     },
 };
