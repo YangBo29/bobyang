@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import Spreadsheet from 'spreadsheet';
-import '@public/spreadsheet/spreadsheet.css';
+// import Spreadsheet from 'spreadsheet';
+// import '@public/spreadsheet/spreadsheet.css';
 import styles from './index.less';
 import random from 'string-random';
 

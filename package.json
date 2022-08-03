@@ -8,7 +8,6 @@
         "lint:es": "eslint --ext .js src mock tests",
         "lint:ts": "tslint \"src/**/*.ts\" \"src/**/*.tsx\"",
         "precommit": "lint-staged",
-        "link": "yalc add raydata",
         "rm": "yalc remove --all"
     },
     "dependencies": {
@@ -41,8 +40,8 @@
         "react-datepicker": "^3.0.0",
         "react-dom": "^16.14.0",
         "react-monaco-editor": "^0.47.0",
+        "react-slick": "^0.29.0",
         "react-transition-group": "^4.4.1",
-        "spreadsheet": "^1.5.5",
         "three": "^0.129.0",
         "wurl": "^2.5.4"
     },
@@ -74,7 +73,8 @@
         "umi": "^2.9.0",
         "umi-plugin-react": "^1.8.0",
         "umi-types": "^0.3.0",
-        "url-loader": "^4.1.0"
+        "url-loader": "^4.1.0",
+        "spreadsheet": "^1.5.5"
     },
     "lint-staged": {
         "*.{ts,tsx}": [

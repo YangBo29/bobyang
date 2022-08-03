@@ -39,7 +39,7 @@ export default {
                     webpackChunkName: true,
                     // loadingComponent: './components/Loading/index.js' 加载组件
                 },
-                title: 'raydata-web-pro',
+                title: '-web-',
                 dll: true,
                 routes: {
                     exclude: [
@@ -79,7 +79,6 @@ export default {
     urlLoaderExcludes: [/\.(png|jpe?g|gif|svg)$/],
     proxy: {
         '/apis': {
-            // target: 'https://pre-api.raykite.com',
             // target: 'http://10.10.10.164:8880',
             target: 'http://10.10.10.140/apis',
             changeOrigin: true,
@@ -95,7 +94,7 @@ export default {
     chainWebpack(config) {
         config.plugin('extract-css').tap(options => {
             let newOpts = [...options];
-            newOpts[0].filename = 'raydata.[hash:8].css';
+            newOpts[0].filename = 'yb.[hash:8].css';
             return newOpts;
         });
         config.module
@@ -112,7 +111,7 @@ export default {
             .loader('url-loader');
         //更改生产环境打包的的js文件名称
         config.when(process.env.NODE_ENV === 'production', config => {
-            config.output.filename('raydata.[hash:8].js');
+            config.output.filename('yb.[hash:8].js');
         });
         // config.plugin('monaco-editor').use(MonacoWebpackPlugin, [
         //     {

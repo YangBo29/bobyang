@@ -10,7 +10,6 @@ import formats from './formats';
 import regulars from './regulars';
 import trans from './trans';
 import base from './base';
-import unity from './unity';
 
 const utils = {
     ...base, // 基础函数
@@ -18,7 +17,6 @@ const utils = {
     ...formats, // 格式化类函数
     ...regulars, // 正则类函数
     ...trans, // 转换类公用函数
-    ...unity, // 3D 相关函数
 };
 
 export default utils;
