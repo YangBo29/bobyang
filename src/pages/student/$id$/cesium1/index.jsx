@@ -1,10 +1,17 @@
-import React, { useEffect, useRef } from 'react';
+/*
+ * Author: yangbo
+ * Date: 2022-05-31 14:47
+ * LastEditors: yangbo
+ * LastEditTime: 2022-06-02 13:47
+ * FilePath: /bobyang/src/pages/student/$id$/cesium1/index.jsx
+ * Description:
+ */
+import React, { useEffect } from 'react';
 import * as Cesium from 'cesium';
 import 'cesium/Build/Cesium/Widgets/widgets.css';
 
-window.CESIUM_BASE_URL = '/';
-
 Cesium.Ion.defaultAccessToken =
+    // 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJiN2UzMjI1Mi1iNzAwLTQ3ZGUtOGZhNi00NTliNTJjNTI0NzYiLCJpZCI6OTU2NTgsImlhdCI6MTY1Mzg5MzYyOX0.1fja7oZmr2xtodTRksAcFt3vW1souhM0sNXQJyhg9Pg';
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJiN2UzMjI1Mi1iNzAwLTQ3ZGUtOGZhNi00NTliNTJjNTI0NzYiLCJpZCI6OTU2NTgsImlhdCI6MTY1Mzg5MzYyOX0.1fja7oZmr2xtodTRksAcFt3vW1souhM0sNXQJyhg9Pg';
 
 export default function Cesium1(props) {
@@ -12,85 +19,82 @@ export default function Cesium1(props) {
         const viewer = new Cesium.Viewer('cesiumContainer', {
             terrainProvider: Cesium.createWorldTerrain(),
         });
-        console.log(viewer.scene);
 
-        // let scenes = [
-        //     // 'http://10.10.7.246:8090/iserver/services/3D-PingMianblock/rest/realspace',
-        //     // 'http://10.10.3.144:8090/iserver/services/3D-sanwei_noins/rest/realspace',
-        //     'http://www.supermapol.com/realspace/services/3D-suofeiya_church/rest/realspace',
-        //     'http://www.supermapol.com/realspace/services/3D-NewCBD/rest/realspace',
-        //     'https://www.supermapol.com/realspace/services/3D-CQmodel_wireframe_2000/rest/realspace',
-        //     'https://www.supermapol.com/realspace/services/3D-cloud/rest/realspace',
-        // ];
-        // viewer.scene.open(scenes[0]);
+        const tileset = new Cesium.Cesium3DTileset({
+            url: Cesium.IonResource.fromAssetId(43978),
+        });
+        viewer.scene.primitives.add(tileset);
+        // viewer.zoomTo(tileset);
 
-        // const buildingTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings());
-        // viewer.camera.flyTo({
-        //     destination: Cesium.Cartesian3.fromDegrees(-122.4175, 37.655, 400),
-        //     orientation: {
-        //         heading: Cesium.Math.toRadians(0.0),
-        //         pitch: Cesium.Math.toRadians(-15.0),
+        (async () => {
+            await tileset.readyPromise;
+            await viewer.zoomTo(tileset);
+
+            let extras = tileset.asset.extras;
+            if (
+                Cesium.defined(extras) &&
+                Cesium.defined(extras.ion) &&
+                Cesium.defined(extras.ion.defaultStyle)
+            ) {
+                tileset.style = new Cesium.Cesium3DTileStyle(extras.ion.defaultStyle);
+            }
+        })(tileset, viewer, Cesium);
+
+        // const classificationTileset = new Cesium.Cesium3DTileset({
+        //     url: '../SampleData/Cesium3DTiles/Classification/PointCloud/tileset.json',
+        //     classificationType: Cesium.ClassificationType.CESIUM_3D_TILE,
+        // });
+        // viewer.scene.primitives.add(classificationTileset);
+
+        // classificationTileset.style = new Cesium.Cesium3DTileStyle({
+        //     color: {
+        //         conditions: [
+        //             ["${id} === 'roof1'", "color('#004FFF', 0.5)"],
+        //             ["${id} === 'towerBottom1'", "color('#33BB66', 0.5)"],
+        //             ["${id} === 'towerTop1'", "color('#0099AA', 0.5)"],
+        //             ["${id} === 'roof2'", "color('#004FFF', 0.5)"],
+        //             ["${id} === 'tower3'", "color('#FF8833', 0.5)"],
+        //             ["${id} === 'tower4'", "color('#FFAA22', 0.5)"],
+        //             ['true', "color('#FFFF00', 0.5)"],
+        //         ],
         //     },
         // });
 
-        // const viewer = new Cesium.Viewer('cesiumContainer', {
-        // terrainProvider: Cesium.createWorldTerrain({
-        //     requestWaterMask: true,
-        //     requestVertexNormals: true,
-        // }),
-        // imageryProvider: new Cesium.UrlTemplateImageryProvider({
-        //     url:
-        //         'https://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetGray/MapServer/tile/001',
-        // }),
+        // viewer.scene.camera.setView({
+        //     destination: new Cesium.Cartesian3(1332761, -4662399, 4137888),
+        //     orientation: {
+        //         heading: 0.6,
+        //         pitch: -0.66,
+        //     },
         // });
 
-        // new Cesium.UrlTemplateImageryProvider({
-        //     // url: `https://mt1.google.cn/vt/lyrs=s&x=1&y=1&z=5`,
-        //     url: 'https://cesium.com/ion/stories/viewer/?id=8f79767b-25ac-4d60-952e-da004ad74cc3',
-        // });
+        // const city = viewer.scene.primitives.add(
+        //     new Cesium.Cesium3DTileset({
+        //         url: Cesium.IonResource.fromAssetId(3839),
+        //     }),
+        // );
+
+        // const highlighted = {
+        //     feature: undefined,
+        //     originalColor: new Cesium.Color(),
+        // };
+
+        // viewer.screenSpaceEventHandler.setInputAction(function onMouseMove(movement) {
+        //     if (Cesium.defined(highlighted.feature)) {
+        //         highlighted.feature.color = highlighted.originalColor;
+        //         highlighted.feature = undefined;
+        //     }
+
+        //     const pickedFeature = viewer.scene.pick(movement.endPosition);
+        //     if (!Cesium.defined(pickedFeature)) {
+        //         return;
+        //     }
+
+        //     highlighted.feature = pickedFeature;
+        //     Cesium.Color.clone(pickedFeature.color, highlighted.originalColor);
+        //     pickedFeature.color = Cesium.Color.YELLOW.withAlpha(0.5);
+        // }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
     }, []);
 
-    const canvas_dom = useRef(null);
-
-    // useEffect(() => {
-    //     let viewer = new window.Cesium.Viewer('cesiumContainer', {
-    //         geocoder: false,
-    //         homeButton: false,
-    //         sceneModePicker: false,
-    //         baseLayerPicker: false,
-    //         navigationHelpButton: false,
-    //         animation: false,
-    //         // creditContainer: 'credit',
-    //         timeline: false,
-    //         fullscreenButton: false,
-    //         vrButton: false,
-    //     });
-    //     // viewer.extend(window.Cesium.viewerCesiumInspectorMixin);
-    //     viewer.scene.postProcessStages.fxaa.enabled = true;
-    //     viewer.scene.debugShowFramesPerSecond = true;
-
-    //     // viewer.entities.add({
-    //     //     name: 'Red box with black outline',
-    //     //     position: window.Cesium.Cartesian3.fromDegrees(-0.0, 40.0, 50.0),
-    //     //     box: {
-    //     //         dimensions: new window.Cesium.Cartesian3(100.0, 100.0, 100.0),
-    //     //         material: window.Cesium.Color.RED.withAlpha(0.5),
-    //     //         outline: true,
-    //     //         outlineColor: window.Cesium.Color.BLACK,
-    //     //     },
-    //     // });
-
-    //     let scenes = [
-    //         // 'http://10.10.7.246:8090/iserver/services/3D-PingMianblock/rest/realspace',
-    //         // 'http://10.10.3.144:8090/iserver/services/3D-sanwei_noins/rest/realspace',
-    //         'http://www.supermapol.com/realspace/services/3D-suofeiya_church/rest/realspace',
-    //         'http://www.supermapol.com/realspace/services/3D-NewCBD/rest/realspace',
-    //         'https://www.supermapol.com/realspace/services/3D-CQmodel_wireframe_2000/rest/realspace',
-    //         'https://www.supermapol.com/realspace/services/3D-cloud/rest/realspace',
-    //     ];
-    //     viewer.scene.open(scenes[0]);
-    //     // viewer.zoomTo(viewer.entities);
-    // }, []);
-
-    return <div ref={canvas_dom} id="cesiumContainer" width="100%" height="100%"></div>;
+    return <div id="cesiumContainer" width="100%" height="100%"></div>;
 }
